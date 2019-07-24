@@ -7,8 +7,30 @@ const express = require('express')
 const app = express()
 const publicDirectoryPath = path.join(__dirname, '../public')
 
-// app.use(express.static((publicDirectoryPath)))
+app.set('view engine', 'hbs') // install hbs package before using it
 app.use(express.static(publicDirectoryPath))
+
+// Routing for hbs package
+app.get('', (req, res) => {
+    res.render('index', {
+        title: 'Weather App',
+        name: 'Shimul'
+
+    })
+})
+app.get('/about', (req, res) => {
+    res.render('about', {
+        title: 'About Me',
+        name: 'Shimul'
+    })
+})
+
+app.get('/help', (req, res) =>{
+    res.render('help', {
+        title: 'Help Page',
+        msg: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    })
+})
 // console.log(publicDirectoryPath)
 
 // ************ Routing **********
@@ -18,23 +40,19 @@ app.use(express.static(publicDirectoryPath))
 // app.com/weather
 
 
-app.get('', (req, res) => {
-    res.send('<h1>Weather</h1>')
-})
+// app.get('/help', (req, res) => {
+//     res.send([{
+//         name: 'Shimul',
+//         age: 25
+//     }, {
+//         name: 'Sarah',
+//         age: 19
+//     }])
+// })
 
-app.get('/help', (req, res) => {
-    res.send([{
-        name: 'Shimul',
-        age: 25
-    }, {
-        name: 'Sarah',
-        age: 19
-    }])
-})
-
-app.get('/about', (req, res) => {
-    res.send('<h1>About Page</h1>')
-})
+// app.get('/about', (req, res) => {
+//     res.send('<h1>About Page</h1>')
+// })
 app.get('/weather', (req, res) => {
     res.send([
         {
