@@ -1,14 +1,19 @@
 const path = require('path')
 const express = require('express')
 
-// console.log(__dirname)
-// console.log(path.join(__dirname, '../public'))
-
 const app = express()
-const publicDirectoryPath = path.join(__dirname, '../public')
 
+// Define the paths for Express config
+const publicDirectoryPath = path.join(__dirname, '../public')
+const viewsPath = path.join(__dirname, '../pages')
+
+// Setup handlebar Engine and views location
 app.set('view engine', 'hbs') // install hbs package before using it
+app.set('views', viewsPath)
+
+// Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
+
 
 // Routing for hbs package
 app.get('', (req, res) => {
