@@ -73,7 +73,7 @@ app.get('/weather', (req, res) => {
         })
     }else {
         // Object destructuring
-        geocode ( req.query.address, (error, {latitude, longitude, location}) => {
+        geocode ( req.query.address, (error, {latitude, longitude, location} = {} ) => {
             if(error){
                 return res.send(error) //shorthand
             }
