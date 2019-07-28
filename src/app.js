@@ -70,6 +70,7 @@ app.get('/weather', (req, res) => {
     if(!req.query.address){
         return res.send({
             error: 'Please provide an Address!'
+            
         })
     }else {
         // Object destructuring
