@@ -74,19 +74,21 @@ app.get('/weather', (req, res) => {
         })
     }else {
         // Object destructuring
-        geocode ( req.query.address, (error, {latitude, longitude, location} = {} ) => {
+        geocode ( req.query.address, (error, data) => {
             if(error){
-                return res.send(error) //shorthand
+                return res.send({
+                    error: 'Unable to connect the Location!'
+                }) //shorthand
             }
         
-            forecast(latitude,longitude, (error, forecastData) => {
+            forecast(data.latitude,data.longitude, (error, forecastData) => {
                 if(error){
                     return res.send(error)
                 }
         
                 res.send({
                     forecast: forecastData,
-                    location,
+                    location: data.location,
                     address: req.query.address
                 })
             })
