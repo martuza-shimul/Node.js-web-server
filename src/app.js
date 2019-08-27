@@ -25,14 +25,14 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather App',
-        name: 'Shimul'
+        name: 'Martuza Shimul'
 
     })
 })
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Me',
-        name: 'Shimul'
+        name: 'Martuza Shimul'
     })
 })
 
@@ -41,7 +41,7 @@ app.get('/help', (req, res) =>{
         title: 'Help Page',
         msg: "This is the Help Text",
         title: 'Help',
-        name: 'Shimul'
+        name: 'Martuza Shimul'
     })
 })
 // console.log(publicDirectoryPath)
@@ -55,7 +55,7 @@ app.get('/help', (req, res) =>{
 
 // app.get('/help', (req, res) => {
 //     res.send([{
-//         name: 'Shimul',
+//         name: 'Martuza Shimul',
 //         age: 25
 //     }, {
 //         name: 'Sarah',
@@ -115,7 +115,7 @@ app.get('/products', (req, res) => {
 app.get('/help/*', (req,res) => {
     res.render('404', {
         title: '404',
-        name: 'Shimul',
+        name: 'Martuza Shimul',
         errorMessage: 'Help article not found'
     })
 })
@@ -123,7 +123,7 @@ app.get('/help/*', (req,res) => {
 app.get('*',(req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Shimul',
+        name: 'Martuza Shimul',
         errorMessage: 'Page not found'
     })
 })
